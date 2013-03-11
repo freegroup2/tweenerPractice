@@ -1,14 +1,12 @@
 package
 {
 	import caurina.transitions.Tweener;
-	
 	import flash.display.CapsStyle;
 	import flash.display.JointStyle;
 	import flash.display.LineScaleMode;
 	import flash.display.Shape;
 	import flash.display.Sprite;
 	import flash.geom.Point;
-	import flash.utils.Timer;
 	
 	public class tweenerPractice extends Sprite
 	{
