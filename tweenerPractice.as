@@ -44,7 +44,7 @@ package
 			createShape(container4,trapezoid4,300,300,0x556677,num4);
 			
 			//開始移動第一個方塊	
-			Tweener.addTween(trapezoid, {x:100, y:100, time:2, onComplete:rotateTweener, onCompleteParams:[trapezoid2, trapezoid3, trapezoid4]});
+			Tweener.addTween(container1, {x:200, y:200, time:4, onComplete:rotateTweener, onCompleteParams:[container2, container3, container4]});
 		}
 		public function createShape(target:Sprite, target2:Shape, pointX:int, pointY:int, color:uint, numText:TextField):void
 		{
@@ -59,17 +59,17 @@ package
 			target2.graphics.lineTo(0, 0); 
 			this.addChild(target);
 		}
-		public function rotateTweener(target:Shape, target2:Shape, target3:Shape):void
+		public function rotateTweener(target:Sprite, target2:Sprite, target3:Sprite):void
 		{
 			//開始旋轉第二個方塊
 			Tweener.addTween(target, {rotation:360, time:3, onComplete:colorChange, onCompleteParams:[target2, target3]});
 			//class 概念 那是什麼哇歌？
 		}
-		public function colorChange(target:Shape, target2:Shape):void
+		public function colorChange(target:Sprite, target2:Sprite):void
 		{
 			Tweener.addTween(target, {_color:0xffdd33, time:5, onComplete:bounce, onCompleteParams:[target2]});
 		}
-		public function bounce(target:Shape):void
+		public function bounce(target:Sprite):void
 		{
 			Tweener.addTween(target, {x: 300, transition: "linear", time: 1});
 			Tweener.addTween(target, {y: -70, transition: "easeOutQuad", time: 0.5});
