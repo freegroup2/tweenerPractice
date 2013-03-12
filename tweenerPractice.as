@@ -2,9 +2,7 @@ package
 {
 	import caurina.transitions.Tweener;
 	import caurina.transitions.properties.ColorShortcuts;
-	
 	import fl.transitions.Tween;
-	
 	import flash.display.CapsStyle;
 	import flash.display.JointStyle;
 	import flash.display.LineScaleMode;
@@ -13,7 +11,6 @@ package
 	import flash.events.MouseEvent;
 	import flash.geom.Point;
 	import flash.text.TextField;
-	import flash.text.TextFormat;
 		
 	public class tweenerPractice extends Sprite
 	{
@@ -25,18 +22,12 @@ package
 			var num1:TextField = new TextField();
 			var num2:TextField = new TextField();
 			var num3:TextField = new TextField();
-			var newFormat:TextFormat = new TextFormat();
 			
 			stage.addEventListener(MouseEvent.CLICK,tweenersStop);
 			ColorShortcuts.init();
-			
-			newFormat.size = 18;
 			num1.text = "1";
 			num2.text = "2";
 			num3.text = "3";
-			num1.defaultTextFormat = newFormat;
-			num2.defaultTextFormat = newFormat;
-			num3.defaultTextFormat = newFormat;
 			
 			var trapezoid:Shape = new Shape();    
 			createShape(container1,trapezoid,100,100,0xFFD700,num1);
@@ -67,8 +58,7 @@ package
 		public function rotateTweener(target:Shape):void
 		{
 			//開始旋轉第二個方塊
-			trace(trapezoid4);
-			Tweener.addTween(target, {rotation:360, time:10, onComplete:this.bounce, onCompleteParams:[this.trapezoid4]});
+			Tweener.addTween(target, {rotation:360, time:10});
 			//, onComplete:colorChange, onCompleteParams:[root.trapezoid3]}
 		}
 		public function colorChange(target:Shape):void
