@@ -13,7 +13,7 @@ package
 	import flash.geom.Point;
 	import flash.text.TextField;
 		
-	public class tweenerPractice extends Sprite
+	public class TweenerPractice extends Sprite
 	{
 		//分別宣告了container用來包住shape 和 texdfield
 		//shape分別命名為 trapezoid 1234
@@ -23,7 +23,7 @@ package
 		public var container3:Sprite;
 		public var container4:Sprite;
 		
-		public function tweenerPractice()
+		public function TweenerPractice()
 		{
 			container1 = new Sprite();
 			container2 = new Sprite();
@@ -48,8 +48,8 @@ package
 			target.x = pointX;
 			target.y = pointY;
 			num.text = number;
-			target.addChildAt(trapezoid,0);
-			target.addChildAt(num,1);
+			target.addChild(trapezoid);
+			target.addChild(num);
 			//再使用addChildAt時 0號索引要在最上面？
 			//指定lineStyle 及lineTo去畫出長方形
 			trapezoid.graphics.lineStyle(10, color, 1, false, LineScaleMode.VERTICAL,CapsStyle.NONE, JointStyle.MITER, 10);
