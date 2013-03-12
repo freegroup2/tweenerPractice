@@ -2,7 +2,9 @@ package
 {
 	import caurina.transitions.Tweener;
 	import caurina.transitions.properties.ColorShortcuts;
+	
 	import fl.transitions.Tween;
+	
 	import flash.display.CapsStyle;
 	import flash.display.JointStyle;
 	import flash.display.LineScaleMode;
@@ -42,8 +44,7 @@ package
 			createShape(container4,trapezoid4,300,300,0x556677,num4);
 			
 			//開始移動第一個方塊	
-			Tweener.addTween(trapezoid, {x:100, y:100, time:5, onComplete:bounce, onCompleteParams:[trapezoid4]});
-			Tweener.addTween(trapezoid3, {_color:0xffdd33, time:10, delay:15});
+			Tweener.addTween(trapezoid, {x:100, y:100, time:2, onComplete:rotateTweener, onCompleteParams:[trapezoid2, trapezoid3, trapezoid4]});
 		}
 		public function createShape(target:Sprite, target2:Shape, pointX:int, pointY:int, color:uint, numText:TextField):void
 		{
@@ -58,19 +59,18 @@ package
 			target2.graphics.lineTo(0, 0); 
 			this.addChild(target);
 		}
-		public function rotateTweener(target:Shape):void
+		public function rotateTweener(target:Shape, target2:Shape, target3:Shape):void
 		{
 			//開始旋轉第二個方塊
-			Tweener.addTween(target, {rotation:360, time:10});
-			//, onComplete:colorChange, onCompleteParams:[root.trapezoid3]}
+			Tweener.addTween(target, {rotation:360, time:3, onComplete:colorChange, onCompleteParams:[target2, target3]});
+			//class 概念 那是什麼哇歌？
 		}
-		public function colorChange(target:Shape):void
+		public function colorChange(target:Shape, target2:Shape):void
 		{
-
+			Tweener.addTween(target, {_color:0xffdd33, time:5, onComplete:bounce, onCompleteParams:[target2]});
 		}
 		public function bounce(target:Shape):void
 		{
-			//Tweener.removeTweens(target);
 			Tweener.addTween(target, {x: 300, transition: "linear", time: 1});
 			Tweener.addTween(target, {y: -70, transition: "easeOutQuad", time: 0.5});
 			Tweener.addTween(target, {y: 300,	transition: "easeInQuad", time: 0.5, delay: 0.5});		
