@@ -2,9 +2,7 @@ package
 {
 	import caurina.transitions.Tweener;
 	import caurina.transitions.properties.ColorShortcuts;
-	
 	import fl.transitions.Tween;
-	
 	import flash.display.CapsStyle;
 	import flash.display.JointStyle;
 	import flash.display.LineScaleMode;
